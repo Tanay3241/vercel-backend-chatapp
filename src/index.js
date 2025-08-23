@@ -19,10 +19,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "https://vercel-frontend-chatapp.vercel.app/", // frontend URL
+    origin: process.env.CLIENT_URL || "https://vercel-frontend-chatapp.vercel.app", // no trailing slash
     credentials: true,
   })
 );
+
 
 // API Routes
 app.use("/api/auth", authRoutes);
