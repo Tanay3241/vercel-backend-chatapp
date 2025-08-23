@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173", // frontend URL
+    origin: process.env.CLIENT_URL || "https://vercel-frontend-chatapp.vercel.app/", // frontend URL
     credentials: true,
   })
 );

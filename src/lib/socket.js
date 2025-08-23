@@ -10,7 +10,7 @@ export const io = new Server(server, {
   cors: {
     origin: process.env.NODE_ENV === "production" 
       ? true // Allow all origins in production
-      : "http://localhost:5173", // frontend URL in dev
+      : "https://vercel-frontend-chatapp.vercel.app/", // frontend URL in dev
     credentials: true,
   },
 });
