@@ -8,9 +8,9 @@ export const server = http.createServer(app);
 
 export const io = new Server(server, {
   cors: {
-    oorigin: process.env.NODE_ENV === "production"
-  ? "https://vercel-frontend-chatapp.vercel.app"  // deployed frontend
-  : "http://localhost:5173",                      // local dev
+    origin: process.env.NODE_ENV === "production"
+      ? "https://vercel-frontend-chatapp.vercel.app"  // deployed frontend
+      : "http://localhost:5173",                      // local dev
     credentials: true,
   },
 });
@@ -21,7 +21,7 @@ const userSocketMap = {};
 // Helper to get online users
 const getOnlineUsers = () => Object.keys(userSocketMap);
 
-// ✅ Added: getReceiverSocketId function
+// ✅ Helper: get socketId of a user
 export function getReceiverSocketId(receiverId) {
   return userSocketMap[receiverId];
 }
