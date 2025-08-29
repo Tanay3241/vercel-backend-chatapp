@@ -7,7 +7,7 @@ import path from "path";
 import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
-import { app, server } from "./lib/socket.js";
+import { app, server } from "./lib/socket.js"; // IMPORTANT: app comes from socket.js
 
 dotenv.config();
 
@@ -28,12 +28,17 @@ app.use(
   })
 );
 
-// API Routes
+// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
+// Root route (for testing)
+app.get("/", (req, res) => {
+  res.send("🚀 Backend is working fine!");
+});
+
 // Start server
 server.listen(PORT, () => {
-  console.log("✅ Server running on PORT: " + PORT);
   connectDB();
+  console.log(`✅ Server running on PORT: ${PORT}`);
 });

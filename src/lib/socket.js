@@ -8,9 +8,9 @@ export const server = http.createServer(app);
 
 export const io = new Server(server, {
   cors: {
-    origin: process.env.NODE_ENV === "production" 
-      ? true // Allow all origins in production
-      : "https://vercel-frontend-chatapp.vercel.app/", // frontend URL in dev
+    oorigin: process.env.NODE_ENV === "production"
+  ? "https://vercel-frontend-chatapp.vercel.app"  // deployed frontend
+  : "http://localhost:5173",                      // local dev
     credentials: true,
   },
 });
